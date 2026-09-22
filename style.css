@@ -1,16 +1,121 @@
 :root {
-    --gray-50: #f9fafb;
-    --gray-100: #f3f4f6;
-    --gray-200: #e5e7eb;
-    --gray-300: #d1d5db;
-    --gray-400: #9ca3af;
-    --gray-500: #6b7280;
-    --gray-600: #4b5563;
-    --gray-700: #374151;
-    --gray-800: #1f2937;
-    --gray-900: #111827;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  --step--2: clamp(0.7rem, 0.67rem + 0.14vw, 0.75rem);
+  --step--1: clamp(0.89rem, 0.86rem + 0.16vw, 1rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.12rem + 0.6vw, 1.5rem);
+  --step-2: clamp(1.56rem, 1.3rem + 1.2vw, 2rem);
+
+  --space-s: clamp(0.75rem, 0.7rem + 0.2vw, 0.9rem);
+  --space-m: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  --space-l: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
 }
 
 body {
-    font-family: system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
+}
+
+article {
+  --measure: 68ch;
+  --flow-space: 1em;
+  --text-strong: oklch(0.18 0 0);
+  --text: oklch(0.26 0 0);
+  --text-muted: oklch(0.48 0 0);
+
+  max-inline-size: var(--measure);
+  margin-inline: auto;
+  padding: var(--space-l, 2rem) var(--space-m, 1rem);
+  color: var(--text);
+
+  code {
+    font-family: var(--font-input, ui-monospace, monospace);
+    font-size: 0.9em;
+    background: oklch(0.93 0.02 260);
+    border: 1px solid oklch(0.86 0.02 260);
+    border-radius: 0.35rem;
+    padding: 0.08em 0.35em;
+  }
+
+  a {
+    color: oklch(0.48 0.17 265);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.14em;
+  }
+}
+
+article > * {
+  margin-block: 0;
+}
+
+article > * + * {
+  margin-block-start: var(--flow-space);
+}
+
+article :is(h1, h2, h3, h4) {
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.article h2 {
+  --flow-space: 1.75rlh;
+}
+
+.article h3 + * {
+  --flow-space: 0.5rlh;
+}
+
+.article :is(.eyebrow, figcaption, .text-small) {
+  color: var(--text-muted);
+}
+
+h1 {
+  font-size: var(--step-2);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: var(--step-1);
+  line-height: 1;
+}
+
+h3 {
+  font-size: var(--step-0);
+  line-height: 1;
+}
+
+h4 {
+  font-size: var(--step--1);
+}
+
+h2 + h3 {
+  line-height: 0.8;
+}
+
+.text-lead {
+  font-size: var(--step-1);
+  line-height: 1.2;
+}
+
+.text-small {
+  font-size: var(--step--2);
+  color: var(--gray-700);
+}
+
+p {
+  font-size: var(--step--1);
+  color: var(--gray-800);
+  line-height: 1.45;
+}
+
+.figure {
 }
